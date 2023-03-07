@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import MainHeader from "./components/MainHeader/MainHeader";
 import AuthContext from "./Context/auth-context";
+import Testing from "./Context/Testing";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,15 +30,20 @@ function App() {
     // <React.Fragment>
     <AuthContext.Provider value = {
       {
-        isLoggedIn: isLoggedIn
+        isLoggedIn: isLoggedIn,
       }
+      
     }>
+    <Testing.Provider value={{
+      testingCode: 1
+    }}>
       <MainHeader  onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
         {isLoggedIn && <Home onLogout={logoutHandler} />}
       </main>
     {/* // </React.Fragment> */}
+    </Testing.Provider>
     </AuthContext.Provider>
   );
 }

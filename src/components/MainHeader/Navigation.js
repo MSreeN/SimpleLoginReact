@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../Context/auth-context';
+import Testing from '../../Context/Testing';
 
 import classes from './Navigation.module.css';
 
 const Navigation = (props) => {
   const context = useContext(AuthContext);
+  const testingContext = useContext(Testing)
+  console.log(testingContext.testingCode);
   return (
-
       
       <nav className={classes.nav}>
       <ul>
