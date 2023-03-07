@@ -4,10 +4,10 @@ import Testing from '../../Context/Testing';
 
 import classes from './Navigation.module.css';
 
-const Navigation = (props) => {
+const Navigation = () => {
   const context = useContext(AuthContext);
   const testingContext = useContext(Testing)
-  console.log(testingContext.testingCode);
+  // console.log(testingContext.testingCode);
   return (
       
       <nav className={classes.nav}>
@@ -24,7 +24,7 @@ const Navigation = (props) => {
         )}
         {context.isLoggedIn && (
           <li>
-            <button onClick={props.onLogout}>Logout</button>
+            <button onClick={context.onLogout}>Logout</button>
           </li>
         )}
       </ul>
