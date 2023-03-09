@@ -78,6 +78,7 @@ const Login = (props) => {
   // };
 
 const submitHandler = (e)=> {
+  e.preventDefault();
   if (formIsValid) {
     props.onLogin(emailState.value, passwordState.value);
   } else if (!emailState.isValid) {
